@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dat.GUI Example</title>
+    <script src="https://cdn.jsdelivr.net/npm/dat.gui/build/dat.gui.min.js"></script>
+    <style src="styles.css">
+    </style>
+</head>
+<body>
+
+    <script src="script.js"></script>
+
+    <script>
+        // Define an object with some properties
+        const settings = {
+            speed: 0.8,
+            color: "#ff0000",
+            displayOutline: true,
+            shape: 'square',
+            draw: function() {
+                console.log('Drawing shape...');
+            }
+        };
+
+        // Create a new dat.GUI instance
+        const gui = new dat.GUI();
+
+        // Add controllers to the GUI
+        gui.add(settings, 'speed', 0, 1);           // A slider for the speed (0 to 1)
+        gui.addColor(settings, 'color');            // A color picker for the color
+        gui.add(settings, 'displayOutline');        // A checkbox for displayOutline
+        gui.add(settings, 'shape', ['square', 'circle', 'triangle', 'star']); // Dropdown for shape
+        gui.add(settings, 'draw');                  // A button to trigger the draw function
+
+        // Function to update properties (for example purposes)
+        function update() {
+            console.log(`Speed: ${settings.speed}`);
+            console.log(`Color: ${settings.color}`);
+            console.log(`Display Outline: ${settings.displayOutline}`);
+            console.log(`Shape: ${settings.shape}`);
+        }
+
+        // Call update whenever a value changes
+        gui.onChange(update);
+    </script>
+
+</body>
+</html>

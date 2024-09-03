@@ -1,0 +1,13 @@
+
+
+/* Increase the spacing between GUI controls */
+.custom-gui .dg .c {
+    margin-bottom: 35px; /* Increase this value for more spacing */
+}
+
+/* Adjust the padding inside each control (optional) */
+.custom-gui .dg .c input,
+.custom-gui .dg .c select,
+.custom-gui .dg .c label {
+    padding: 35px; /* Adjust the padding inside the controls */
+}
